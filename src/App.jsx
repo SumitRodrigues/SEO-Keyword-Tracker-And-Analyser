@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Components/Navbar/Navbar'
+import CheckboxList from './Components/CheckboxList/CheckboxList';
 
 const App = () => {
 
@@ -8,11 +9,12 @@ const App = () => {
 
   useEffect(()=>{
     localStorage.setItem("current_theme", theme);
-  },[theme])
+  },[theme]);
 
   return (
     <div className={`container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
+      <CheckboxList />
     </div>
   )
 }
