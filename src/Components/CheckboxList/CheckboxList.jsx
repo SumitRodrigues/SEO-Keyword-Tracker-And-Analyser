@@ -10,6 +10,14 @@ function CheckboxList() {
         setCheckedItems({ ...checkedItems, [name]: checked });
     };
 
+    const handleSelectAll = () => {
+        const newCheckedItems = {};
+        options.forEach(option => {
+            newCheckedItems[option] = true;
+        });
+        setCheckedItems(newCheckedItems);
+    };
+
     const handleAnalyzeResults = () => {
         // Implement your logic to analyze the results here
         console.log('Checked Items:', checkedItems);
@@ -29,6 +37,9 @@ function CheckboxList() {
                     <label className="checkbox-label">{option}</label>
                 </div>
             ))}
+            <button className="select-all-button" onClick={handleSelectAll}>
+                Select All
+            </button>
             <button className="analyze-button" onClick={handleAnalyzeResults}>
                 Analyze Results
             </button>
